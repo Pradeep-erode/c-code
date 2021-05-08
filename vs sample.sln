@@ -1,25 +1,84 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31129.286
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vs sample", "vs sample.csproj", "{925FA126-423E-4FEA-A0D8-D6B68E607822}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{925FA126-423E-4FEA-A0D8-D6B68E607822}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{925FA126-423E-4FEA-A0D8-D6B68E607822}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{925FA126-423E-4FEA-A0D8-D6B68E607822}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{925FA126-423E-4FEA-A0D8-D6B68E607822}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7073B668-A3A7-4EE1-B2AD-1E266F4ECAAC}
-	EndGlobalSection
-EndGlobal
+using System;
+
+namespace vs_sample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+            Console.WriteLine(Class1.henry);
+            Class2.marke();
+            //Class2.obj4= new Class2();           ///////object created for normal class having static and normal method
+            //obj4.disc();
+            //Class1.obj5 = new Class1();          ///////object created for normal class having static and normal method
+            //obj5.disc();
+
+            Class3.marka();
+            Class3.markaa();
+            int val = 4;
+            Console.WriteLine("Value before calling the function " + val);
+            polyy.Show(ref val);
+            Console.WriteLine("Value after calling the function " + val);
+         
+        }
+    }
+
+    public class Class1                    //class1 with static variable
+    {
+        public static string henry = "I am static variable";
+        public void disc()
+        {
+            Console.Write("I am inside normal class");
+        }
+    }
+
+    
+
+
+    public class Class2                   //class2 with static method and as class3 was a static It cannot inherited here like-- Class2:Class3 
+    {
+        public static void marke()
+        {
+            Console.WriteLine("I am static method");
+        }
+        public void disc()
+        {
+            Console.Write("I am inside normal class");
+        }
+    }
+
+    
+
+    public static class Class3           //class3 with static class and It cannot inherited and also object was not created for this class
+    {   
+        private static int r = 43;       //as class is static all methods and variables inside this was static--try remove static in method show error
+        public static void marka()  
+        {
+            Console.WriteLine("I am static class3 with private variable:" +r);
+        }
+        public static void markaa()
+        {
+            Console.WriteLine("I am static class22");
+        }
+    }
+
+
+    /// <summary>
+    /// call by reference 
+    /// </summary>
+    static class polyy
+    {
+        // User defined function  
+        public static void Show(ref int val)
+        {
+            val *= val;                   //reprents address of val(val*) is stored in val like pointer
+            Console.WriteLine("Value inside the show function " + val);
+            
+        }
+      
+        
+    }
+    
+
+}
