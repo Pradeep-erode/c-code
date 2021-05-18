@@ -131,6 +131,8 @@ namespace collections
 
             string msg = "Suresh,Rohini,Trishika,-Praveen%Sateesh";
             string[] strarr = msg.Split(new char[] { ',', '-', '%' }, StringSplitOptions.RemoveEmptyEntries);
+            
+            //calling display method
             display(strarr);
             string[] arr = new string[3]{"malli","raj","ravi" };
             display(arr);
@@ -156,6 +158,9 @@ namespace collections
             }
 
             */
+
+            //adding string[] as each elements in queue
+
             void display(string[] ar)
             {
                 foreach (var itm in ar)
@@ -167,17 +172,23 @@ namespace collections
             {
                 Console.WriteLine("Enque in queue:" + itmm);
             }
-            while (que.Count > 10)
+            while (que.Count > 10)  //Deque or delete first two only
             {
                // var nem = que.Dequeue();
 
                 Console.WriteLine("Deque the first 2 element:"+que.Dequeue());
             }
-            Console.WriteLine("\n"+"The peek value after deque"+que.Peek());
+            Console.WriteLine("\n"+"The peek value after deque"+que.Peek());  //peek==print First value 
 
         }
 
     }
+
+
+    /// <summary>
+    /// Stack
+    /// </summary>
+
 
     public class stackk
     {
@@ -200,7 +211,7 @@ namespace collections
             {
                 Console.WriteLine("\n" + element);
             }
-            while (stk.Count > 5)
+            while (stk.Count > 5) //Deque or delete first 5 only(reverse of input)
             {
                 Console.WriteLine("\n"+stk.Pop());
             }
@@ -211,6 +222,14 @@ namespace collections
 
         }    
     }
+
+
+
+    /// <summary>
+    /// Normal sample program
+    /// </summary>
+
+
     public class methodreusage
     {
         public string val;
@@ -225,6 +244,10 @@ namespace collections
         public void namr()
         {
             string name2 = "pradeep";
+
+            //as methodreusage was inherited here we can call that method directly using methodname()
+            //if accessing methods within the method in same class we can directly use methodname()
+
             nameplus(name2);
             Console.WriteLine("\n"+val);
             
